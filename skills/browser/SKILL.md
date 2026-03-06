@@ -72,8 +72,8 @@ JSON array of objects with `selector`, `value`, and optional `submit`:
 
 ```json
 [
-  {"selector": "#username", "value": "alex"},
-  {"selector": "#password", "value": "secret", "submit": "#login-btn"}
+  {"selector": "#search-input", "value": "PowerShell automation"},
+  {"selector": "#filter-type", "value": "recent", "submit": "#apply-btn"}
 ]
 ```
 
