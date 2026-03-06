@@ -1,6 +1,6 @@
 # PowerSkills
 
-![PowerSkills Hero](assets/hero.jpg)
+![PowerSkills Hero](assets/powerskills-ai-agents-windows-powershell-automation.jpg)
 
 Windows capabilities for AI agents — Outlook, Edge browser, desktop automation, and shell commands as structured JSON skills.
 
