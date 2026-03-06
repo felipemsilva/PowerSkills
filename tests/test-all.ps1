@@ -1,11 +1,3 @@
-﻿<#
-.SYNOPSIS
-    PowerSkills test suite
-.EXAMPLE
-    .\tests\test-all.ps1
-    .\tests\test-all.ps1 -SkipBrowser
-    .\tests\test-all.ps1 -SkipOutlook
-#>
 param(
     [switch]$SkipBrowser,
     [switch]$SkipOutlook
