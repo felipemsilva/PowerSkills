@@ -22,7 +22,7 @@ $root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $pass = 0; $fail = 0; $skip_count = 0
 $results = @()
 
-function Test {
+function Run-Test {
     param([string]$Name, [string]$Skill, [scriptblock]$Block)
     
     if ($Only.Count -gt 0 -and $Skill -notin $Only) { return }
@@ -64,11 +64,11 @@ Write-Host ""
 # ─── Core: Dispatcher ───
 Write-Host "[ Core ]" -ForegroundColor Cyan
 
-Test "Dispatcher: list skills" "core" {
+Run-Test "Dispatcher: list skills" "core" {
     & "$root\powerskills.ps1" list
 }
 
-Test "Dispatcher: help for system" "core" {
+Run-Test "Dispatcher: help for system" "core" {
     & "$root\powerskills.ps1" system help
 }
 
@@ -76,27 +76,27 @@ Test "Dispatcher: help for system" "core" {
 Write-Host ""
 Write-Host "[ System ]" -ForegroundColor Cyan
 
-Test "system info (dispatcher)" "system" {
+Run-Test "system info (dispatcher)" "system" {
     & "$root\powerskills.ps1" system info
 }
 
-Test "system info (standalone)" "system" {
+Run-Test "system info (standalone)" "system" {
     & "$root\skills\system\system.ps1" info
 }
 
-Test "system exec: whoami" "system" {
+Run-Test "system exec: whoami" "system" {
     & "$root\powerskills.ps1" system exec --command "whoami"
 }
 
-Test "system exec: echo test" "system" {
+Run-Test "system exec: echo test" "system" {
     & "$root\skills\system\system.ps1" exec --command "echo hello-powerskills"
 }
 
-Test "system processes" "system" {
+Run-Test "system processes" "system" {
     & "$root\powerskills.ps1" system processes --limit 3
 }
 
-Test "system env: COMPUTERNAME" "system" {
+Run-Test "system env: COMPUTERNAME" "system" {
     & "$root\powerskills.ps1" system env --name COMPUTERNAME
 }
 
@@ -104,16 +104,16 @@ Test "system env: COMPUTERNAME" "system" {
 Write-Host ""
 Write-Host "[ Desktop ]" -ForegroundColor Cyan
 
-Test "desktop windows list (dispatcher)" "desktop" {
+Run-Test "desktop windows list (dispatcher)" "desktop" {
     & "$root\powerskills.ps1" desktop windows
 }
 
-Test "desktop windows list (standalone)" "desktop" {
+Run-Test "desktop windows list (standalone)" "desktop" {
     & "$root\skills\desktop\desktop.ps1" windows
 }
 
 $screenshotPath = Join-Path $root "tests\test-screenshot.png"
-Test "desktop screenshot" "desktop" {
+Run-Test "desktop screenshot" "desktop" {
     & "$root\powerskills.ps1" desktop screenshot --out-file $screenshotPath
 }
 
@@ -124,31 +124,31 @@ if (Test-Path $screenshotPath) { Remove-Item $screenshotPath -Force }
 Write-Host ""
 Write-Host "[ Outlook ]" -ForegroundColor Cyan
 
-Test "outlook folders (dispatcher)" "outlook" {
+Run-Test "outlook folders (dispatcher)" "outlook" {
     & "$root\powerskills.ps1" outlook folders
 }
 
-Test "outlook inbox --limit 3" "outlook" {
+Run-Test "outlook inbox --limit 3" "outlook" {
     & "$root\powerskills.ps1" outlook inbox --limit 3
 }
 
-Test "outlook inbox (standalone)" "outlook" {
+Run-Test "outlook inbox (standalone)" "outlook" {
     & "$root\skills\outlook\outlook.ps1" inbox --limit 2
 }
 
-Test "outlook unread --limit 3" "outlook" {
+Run-Test "outlook unread --limit 3" "outlook" {
     & "$root\powerskills.ps1" outlook unread --limit 3
 }
 
-Test "outlook sent --limit 3" "outlook" {
+Run-Test "outlook sent --limit 3" "outlook" {
     & "$root\powerskills.ps1" outlook sent --limit 3
 }
 
-Test "outlook read --index 0" "outlook" {
+Run-Test "outlook read --index 0" "outlook" {
     & "$root\powerskills.ps1" outlook read --index 0 --folder inbox
 }
 
-Test "outlook calendar --days 3" "outlook" {
+Run-Test "outlook calendar --days 3" "outlook" {
     & "$root\powerskills.ps1" outlook calendar --days 3
 }
 
@@ -156,11 +156,11 @@ Test "outlook calendar --days 3" "outlook" {
 Write-Host ""
 Write-Host "[ Browser ]" -ForegroundColor Cyan
 
-Test "browser tabs (dispatcher)" "browser" {
+Run-Test "browser tabs (dispatcher)" "browser" {
     & "$root\powerskills.ps1" browser tabs
 }
 
-Test "browser tabs (standalone)" "browser" {
+Run-Test "browser tabs (standalone)" "browser" {
     & "$root\skills\browser\browser.ps1" tabs
 }
 
