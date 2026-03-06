@@ -47,6 +47,20 @@ All commands return JSON with consistent envelope:
 - Microsoft Outlook (for `outlook` skill)
 - Microsoft Edge with `--remote-debugging-port=9222` (for `browser` skill)
 
+### Execution Policy
+
+If scripts are blocked (`UnauthorizedAccess` error), set the execution policy:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+Or run one-off with bypass:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\powerskills.ps1 list
+```
+
 ### Edge CDP Setup
 
 ```powershell

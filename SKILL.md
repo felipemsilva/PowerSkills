@@ -111,6 +111,16 @@ echo '{"id":"'$ID'","action":"exec","command":"echo pong"}' > "$INBOX/$ID.json"
 
 If no response within 90 seconds, the relay worker is not running on Windows. Notify the user.
 
+## Windows Setup
+
+If running interactively on Windows, scripts may be blocked by execution policy:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+The relay worker already uses `-ExecutionPolicy Bypass` so this only affects direct interactive use.
+
 ## Known Quirks
 
 - **UTF-8 BOM:** Windows writes JSON with BOM. Always read with `encoding='utf-8-sig'`.
