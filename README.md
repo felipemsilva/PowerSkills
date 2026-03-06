@@ -1,5 +1,7 @@
 # PowerSkills
 
+![PowerSkills Hero](assets/hero.jpg)
+
 Windows capabilities for AI agents — Outlook, Edge browser, desktop automation, and shell commands as structured JSON skills.
 
 ## Quick Start
