@@ -1,6 +1,6 @@
-<#
+﻿<#
 .SYNOPSIS
-    PowerSkills test suite — verifies all skills work correctly.
+    PowerSkills test suite - verifies all skills work correctly.
 .DESCRIPTION
     Run from the PowerSkills root directory:
         .\tests\test-all.ps1
@@ -44,13 +44,13 @@ function Run-Test {
         } else {
             $script:fail++
             Write-Host "  FAIL  " -ForegroundColor Red -NoNewline
-            Write-Host "$Name — status: $($json.status), error: $($json.data.error)"
+            Write-Host "$Name - status: $($json.status), error: $($json.data.error)"
             $script:results += @{ name = $Name; status = "fail"; error = $json.data.error }
         }
     } catch {
         $script:fail++
         Write-Host "  FAIL  " -ForegroundColor Red -NoNewline
-        Write-Host "$Name — $_"
+        Write-Host "$Name - $_"
         $script:results += @{ name = $Name; status = "fail"; error = $_.ToString() }
     }
 }
